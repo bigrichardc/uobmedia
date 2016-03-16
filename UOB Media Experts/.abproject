@@ -1,0 +1,45 @@
+{
+  "ProjectName": "UOB_Media_Experts",
+  "ProjectGuid": "869ec857-398a-4cb1-a114-8f938bbcc9ff",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.UOBMediaExperts",
+  "DisplayName": "UOB_Media_Experts",
+  "Author": "",
+  "Description": "UOB_Media_Experts",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "3.7.0",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{2134b993-c6b9-41af-85ad-5a586a47e1f2}",
+  "WP8ProductID": "{6b8f41ef-784e-4a9d-b493-ea0ba34d4266}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.UOBMediaExperts",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}
