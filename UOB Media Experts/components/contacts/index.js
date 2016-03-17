@@ -16,6 +16,7 @@ var dataStaff = new kendo.data.DataSource({
             return data;
         }
     },
+    filter: {field: "LastName", operator: "neq", value: ""},
     group: {field: "letter"}
 });
 

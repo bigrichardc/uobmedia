@@ -1,16 +1,17 @@
-<div id="home" data-role="view" data-laytout="main" data-model="app.expertList" data-show="app.expertList.onShow" data-after-show="app.expertList.afterShow">
-    <!--<ul data-role="listview" id="listview" data-template="contactTemplate"></ul>-->
+<div id="contacts" data-title="Media Experts" data-role="view" data-layout="main" data-model="app.expertList" data-show="app.expertList.onShow" data-after-show="app.expertList.afterShow">
     <ul data-role="listview" id="listview" data-template="contactTemplate" data-source="app.expertList.dataSource"></ul>
 
 </div>
 
 <script type="text/x-kendo-template" id="contactTemplate">
     #if (data.LastName != ""){#
-    <div class="contact-item">
-        <div class="contact-text">
-            <h3>#:data.LastName#, #:data.FirstName#</h3>
-            <p class="ui-li-desc">#:data.JobTitles#</p>
-            <p class="ui-li-desc">#if (data.Department = null) {# #=data.Department# #} #</p>
+    <div onclick="javascript: app.mobileApp.navigate('/components/contact/view.html?contentId=' + #: data.ContentId #);">
+        <div class="contact-item">
+            <div class="contact-text">
+                <h3>#:data.LastName#, #:data.FirstName#</h3>
+                <p class="ui-li-desc">#:data.JobTitles#</p>
+                <p class="ui-li-desc">#if (data.Department = null) {# #=data.Department# #} #</p>
+            </div>
         </div>
     </div>
     #} #

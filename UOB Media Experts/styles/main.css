@@ -175,4 +175,14 @@
     word-break: break-word;
 }
 
+.expert-image {
+	float:right;
+}
+
+.km-mail:after,
+.km-mail:before  {
+    font-family: 'FontAwesome';
+    content: "\F003";
+}
+
 
