@@ -1,9 +1,12 @@
 'use strict';
 
+
+
+
 var dataContact = new kendo.data.DataSource({
     transport: {
         read: {
-            url: "http://www.birmingham.ac.uk/web_services/Staff.svc/19754",
+            url: "http://www.birmingham.ac.uk/web_services/Staff.svc/4844",
             dataType: "json"
         }
     },
@@ -26,7 +29,25 @@ dataContact.fetch(function () {
 
 app.expert = kendo.observable({
     title: "Media Contact",
-    onShow: function () {
+    onShow: function (e) {
+
+        var contentId = e.view.params.contentId;
+
+        dataContact = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://www.birmingham.ac.uk/web_services/Staff.svc/" + contentId,
+                    dataType: "json"
+                }
+            },
+            schema: {
+                data: function (response) {
+                    return [response]; // twitter's response is { "results": [ /* results */ ] }
+                }
+            }
+        });
+
+        console.log(contentId);
 
         dataContact.fetch(function () {
             var data = this.data();
@@ -34,6 +55,7 @@ app.expert = kendo.observable({
             $('#ex-image').attr('src', data[0].Picture);
             $('#ex-title').html(data[0].JobTitles);
             $('#ex-name').text(data[0].FirstName + " " + data[0].LastName);
+            $('#ex-page-title').text(data[0].FirstName + " " + data[0].LastName);
             $('#ex-department').text(data[0].Department);
             $('#ex-mail-text').text(data[0].Email)
             $('#ex-mail').attr("href", "mailto:" + data[0].Email);
