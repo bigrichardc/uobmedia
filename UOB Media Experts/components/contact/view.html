@@ -1,36 +1,35 @@
+<div id="contactpage" data-title="Media Experts" data-role="view" data-layout="main"  data-model="app.expert" data-show="app.expert.onShow" data-after-show="app.expert.afterShow">
+        <!--<div id="expertTemplate" data-role="listview" data-template="contactTemplate"></div>-->
+        <div data-role="content">
+            <div id="expert">
+                <img id="ex-image" src="images/prof.png" class="expert-image" />
+                <h2 id="ex-name">Peter Watkins</h2>
+                <p id="ex-title">Honarary Professor</p>
+                <p id="ex-department">School of Physics and Astronomy <br />University of Birmingham</p>
+                
 
-<div id="home" data-role="view" data-layout="main" data-model="app.expert" data-show="app.expert.onShow" data-after-show="app.expert.afterShow">
-    <div data-role="header">
-        <h1 id="ex-page-title">Professor Peter Watkins</h1>
-    </div>
-    <!--<div id="expertTemplate" data-role="listview" data-template="contactTemplate"></div>-->
-    <div data-role="content">
-        <div id="expert">
-            <img id="ex-image" src="images/prof.png" class="expert-image" />
-            <h2 id="ex-name">Peter Watkins</h2>
-            <p id="ex-title">Honarary Professor</p>
-            <p id="ex-department">School of Physics and Astronomy <br />University of Birmingham</p>
-        </div>
-        
-        <div data-role="contentgroup">
-            <a data-icon="mail" data-iconpos="left" id="ex-mail" href="mailto:" data-role="button" data-rel="external"><span id="ex-mail-text"></span></a>
-            <a data-icon="phone" data-iconpos="left" id="ex-phone1" href="tel:" data-role="button" data-rel="external" ><span id="ex-phone1-text"></span></a>
-            <!--<a data-icon="phone" data-iconpos="left" id="ex-phone2" href="tel:+44 (0) 121 414 4625" data-role="button" rel="external">+44 (0) 121 414 4625</a>-->
-        </div>
-        
-        <div data-role="collapsible">
-            <h3>Expertise</h3>
-            <p id="ex-expertise"></p>
-        </div>
-        <div data-role="collapsible" id="mediaExperience">
-            <h3>Media Experience</h3>
-            <p id="ex-mediaExperience"></p>
-        </div>
+                
+            </div>
+            <div data-role="content" style="clear:both">
+                <a data-icon="mail" data-iconpos="left" id="ex-mail" href="mailto:" data-role="button" data-rel="external" class="km-justified"><span id="ex-mail-text"></span></a>
+                <a data-icon="phone" data-iconpos="left" id="ex-phone1" href="tel:" data-role="button" data-rel="external" class="km-justified"><span id="ex-phone1-text"></span></a>
+                <!--<a data-icon="phone" data-iconpos="left" id="ex-phone2" href="tel:+44 (0) 121 414 4625" data-role="button" rel="external">+44 (0) 121 414 4625</a>-->
+            </div>
 
-    </div>
+                <div data-role="collapsible">
+                    <h3>Expertise</h3>
+                    <p id="ex-expertise"></p>
+                </div>
+                <div data-role="collapsible" id="mediaExperience">
+                    <h3>Media Experience</h3>
+                    <p id="ex-mediaExperience"></p>
+                </div>
+
 </div>
-
-<script type="text/x-kendo-template" id="contactTemplate">
-    <div>#:data.LastName#, #:data.FirstName#
     </div>
-</script>
+
+    <script type="text/x-kendo-template" id="contactTemplate">
+        <div>
+            #:data.LastName#, #:data.FirstName#
+        </div>
+    </script>

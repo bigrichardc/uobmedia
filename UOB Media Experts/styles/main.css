@@ -179,10 +179,19 @@
 	float:right;
 }
 
+.list-chevron {
+    float: right;
+}
+
 .km-mail:after,
 .km-mail:before  {
     font-family: 'FontAwesome';
     content: "\F003";
+}
+
+.km-justified {
+    display: block;
+    width: 100%;
 }
 
 

@@ -6,7 +6,7 @@
 var dataContact = new kendo.data.DataSource({
     transport: {
         read: {
-            url: "http://www.birmingham.ac.uk/web_services/Staff.svc/4844",
+            url: "http://www.birmingham.ac.uk/web_services/Staff.svc/4298",
             dataType: "json"
         }
     },
@@ -47,7 +47,7 @@ app.expert = kendo.observable({
             }
         });
 
-        console.log(contentId);
+        //console.log(contentId);
 
         dataContact.fetch(function () {
             var data = this.data();
@@ -65,24 +65,24 @@ app.expert = kendo.observable({
             }
             else {
                 $('#ex-phone1-text').html("<span class='message-small'>Please contact the Press office</span>");
-                $('#ex-phone1').attr("href", "#press-page").buttonMarkup({ icon: "link" });
+                //$('#ex-phone1').attr("href", "#press-page").buttonMarkup({ icon: "link" });
             }
 
-            $('#ex-expertise').html(data[0].Expertise);
+            $('#ex-expertise').html(data[0].MediaExpertise);
 
             var experience = data[0].MediaExperience;
             experience.trim();
 
             if (experience.length > 16) { // && !experience=="<br>") {
-                $('#ex-mediaExperience').html(data[0].MediaExperience);
+                $('#ex-mediaExperience').html(experience);
                 $('#mediaExperience').show()
             }
             else {
                 $('#mediaExperience').hide();
             }
 
-            console.log(data[0].FirstName);
-            console.log(data[0].LastName);
+            //console.log(data[0].FirstName);
+            //console.log(data[0].LastName);
         })
     },
         error: function (e) {
