@@ -8,12 +8,22 @@
     <link href="styles/main.css" rel="stylesheet">
     <link href="font-awesome-4.5.0/css/font-awesome.css" rel="stylesheet">
 
+    <script src="js/plugins/moment.js"></script>
+    <script src="js/plugins/moment-duration-format.js"></script>
+    <script src="js/plugins/bluebird.js"></script>
+
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
-
+    <script src="services/remoteServiceManager.js"></script>
 
     <script src="app.js"></script>
+
+    <script src="services/expertsRepository.js"></script>
+    <script src="services/localStorageService.js"></script>
+
+
+
 
 </head>
 
@@ -44,6 +54,9 @@
                 <span data-role="view-title"></span>
             </div>
         </header>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
 
         <!-- application views will be rendered here -->
 
