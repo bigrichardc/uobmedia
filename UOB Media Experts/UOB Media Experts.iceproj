@@ -78,6 +78,9 @@
     <Content Include="styles\images\icons-36-white-pack.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="styles\images\UOB-logo.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="styles\jqm-icon-pack-2.0-original.css" />
     <Content Include="testdata\expert_list.json">
       <SubType>Content</SubType>

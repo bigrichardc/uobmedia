@@ -1,28 +1,35 @@
-<div data-role="view" data-title="Home" data-layout="main" data-model="app.home" data-show="app.home.onShow" data-after-show="app.home.afterShow" class="no-backbutton" >
+<div id="home-view" data-role="view" data-title="Home" data-layout="main" data-model="app.home" data-show="app.home.onShow" data-after-show="app.home.afterShow" class="no-backbutton" >
+    <div id="home-container">
 
-    <div id="icons-container">
-        <a href="components/contacts/view.html" class="home-icon" data-role="button">
-            <span class="fa-stack fa-3x">
-                <i class="fa fa-desktop fa-stack-2x" style="color: white;"></i>
-                <strong class="fa-stack-2x home-pc-count-text" id="homePcCount"></strong>
-            </span>
-            <div class="title">
-                PC Availability
-            </div>
-        </a>
+        <div id="logo-container">
+            <img src="styles/images/UOB-logo.png" alt="The University of Birmingham" id="home-logo" />
+            <hr class="white-line" />
+        </div>
+
+
+        <div id="icons-container">
+            <a href="components/contacts/view.html" class="home-icon" data-role="button">
+                <span class="fa fa-stack fa-3x">
+                    <i class="fa fa-mortar-board fa-stack-2x" style="color: white;"></i>
+                    <strong class="fa-stack-2x home-pc-count-text" id="homePcCount"></strong>
+                </span>
+                <div class="title">
+                    Media Experts
+                </div>
+            </a>
+        </div>
+
+
+        <div id="icons-container">
+            <a href="components/contact/view.html?contentId=4298" class="home-icon" data-role="button">
+                <span class="fa fa-stack fa-3x">
+                    <i class="fa fa-desktop fa-stack-2x" style="color: white;"></i>
+                    <strong class="fa-stack-2x home-pc-count-text" id="homePcCount"></strong>
+                </span>
+                <div class="title">
+                    Contact 1234
+                </div>
+            </a>
+        </div>
+        </div>
     </div>
-
-
-    <div id="icons-container">
-        <a href="components/contact/view.html?contentId=4298" class="home-icon" data-role="button">
-            <span class="fa-stack fa-3x">
-                <i class="fa fa-desktop fa-stack-2x" style="color: white;"></i>
-                <strong class="fa-stack-2x home-pc-count-text" id="homePcCount"></strong>
-            </span>
-            <div class="title">
-                Contact 1234
-            </div>
-        </a>
-    </div>
-
-</div>

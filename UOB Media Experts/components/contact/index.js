@@ -51,6 +51,7 @@ app.expert = kendo.observable({
 
         dataContact.fetch(function () {
             var data = this.data();
+            alert("TEST");
             $('#expert').data(data[0].contentID)
             $('#ex-image').attr('src', data[0].Picture);
             $('#ex-title').html(data[0].JobTitles);

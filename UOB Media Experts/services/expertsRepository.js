@@ -4,7 +4,7 @@ app.registerInitialise(function () {
 
     expertsRepository = (function () {
 
-        var cacheKeys = { AllExperts: "%EXPERTS_ALLTEST1" };
+        var cacheKeys = { AllExperts: "%EXPERTS_ALL" };
 
         var expertsURL = "http://www.birmingham.ac.uk/web_services/Staff.svc/";
 
