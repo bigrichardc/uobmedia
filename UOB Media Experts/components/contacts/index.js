@@ -1,5 +1,6 @@
 'use strict';
 
+
 var dataStaff = new kendo.data.DataSource({
     transport: {
         type: 'json',
@@ -25,9 +26,8 @@ var dataStaff = new kendo.data.DataSource({
     },
     filter: { field: "LastName", operator: "neq", value: "" },
     sort: {field: "LastName", dir: "asc"},
-    group: {field: "letter"}
+    group: { field: "letter" }
 });
-
 
 app.expertList = kendo.observable({
     title: "Media Experts",
@@ -41,3 +41,8 @@ app.expertList = kendo.observable({
         }
 
 });
+
+$("filterSearch").change(function () {
+    alert('aaaa');
+});
+

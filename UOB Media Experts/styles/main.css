@@ -217,6 +217,10 @@
     color: white;
 }
 
+.km-flat .km-tabstrip {
+    background-color: #91D9F9;
+}
+
 #home-logo {
     width: 100%;
     padding-left: 20px;
