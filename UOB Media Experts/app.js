@@ -80,6 +80,41 @@ var app = {
         app.hasConnection = true;
 
 
+        var dataStaff = new kendo.data.DataSource({
+            transport: {
+                type: 'json',
+                read: {
+                    url: "testdata/expert_list.json",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                parse: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].letter = data[i].LastName.trim().toUpperCase().charAt(0);
+                    }
+                    return data;
+                }
+            },
+            filter: { field: "LastName", operator: "neq", value: "" },
+            sort: { field: "LastName", dir: "asc" },
+            group: { field: "letter" }
+        });
+
+        app.expertList = kendo.observable({
+            title: "Media Experts",
+            onShow: function () {
+
+            },
+            dataSource: dataStaff,
+
+            error: function (e) {
+                console.log(e);
+            }
+
+        });
+
+
 
         if (app.registerInitialiseCB) {
             app.receivedEvent('registerInitialise');
@@ -130,6 +165,46 @@ var app = {
     onDeviceOnline: function () {
         app.receivedEvent('onDeviceOnline');
         //  console.log("online!!");
+
+        var fileSystemHelper = new FileSystemHelper();
+
+        $.ajax({
+            url: 'http://www.birminghamdev.bham.ac.uk/web_services/staff.svc/mediaexperts/',
+            dataType: 'json',
+            success: function (data, status) {
+                var localData = JSON.stringify(data);
+                window.localStorage.setItem('expert_list', localData);
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+                console.log("success");
+
+            },
+            error: function () {
+                console.log("Error");
+            }
+        })
+
+        function gotFS(fileSystem) {
+            fileSystem.root.getFile("testdata/expert_list.json", { create: true, exclusive: false }, gotFileEntry, fail);
+        }
+
+        function gotFileEntry(fileEntry) {
+            fileEntry.createWriter(gotFileWriter, fail);
+        }
+
+        function gotFileWriter(writer) {
+            var localdata = window.localStorage.getItem('expert_list');
+            writer.write(localdata);
+        }
+
+        function fail(error) {
+            console.log(error.code);
+        }
+
+
+
+
+
         app.hasConnection = true;
     },
     /* pushReceivedEvent: function(item) {
@@ -147,6 +222,7 @@ var app = {
     var bootstrap = function() {
         $(function() {
             app.mobileApp = new kendo.mobile.Application(document.body, {
+                useNativeScrolling: true,
                 transition: 'slide',
                 skin: 'flat',
                 initial: 'components/home/view.html'

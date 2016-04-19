@@ -1,6 +1,11 @@
 'use strict';
 
-
+function UrlExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
+}
 
 
 var dataContact = new kendo.data.DataSource({
@@ -36,7 +41,7 @@ app.expert = kendo.observable({
         dataContact = new kendo.data.DataSource({
             transport: {
                 read: {
-                    url: "http://www.birmingham.ac.uk/web_services/Staff.svc/" + contentId,
+                    url: "testdata/expert_list.json",
                     dataType: "json"
                 }
             },
@@ -51,26 +56,35 @@ app.expert = kendo.observable({
 
         dataContact.fetch(function () {
             var data = this.data();
-            $('#expert').data(data[0].contentID)
-            $('#ex-image').attr('src', data[0].Picture);
-            $('#ex-title').html(data[0].JobTitles);
-            $('#ex-name').text(data[0].FirstName + " " + data[0].LastName);
-            $('#ex-page-title').text(data[0].FirstName + " " + data[0].LastName);
-            $('#ex-department').text(data[0].Department);
-            $('#ex-mail-text').text(data[0].Email)
-            $('#ex-mail').attr("href", "mailto:" + data[0].Email);
-            if (data[0].Telephone1.length > 4) {
-                $('#ex-phone1-text').html(data[0].Telephone1);
-                $('#ex-phone1').attr("href", "tel:" + data[0].Telephone1);
+
+            var i = 0;
+            for (i = 0; i < data[0].length; i++) {
+                if (data[0][i].ContentId == contentId) {
+                    break;
+                }
+            }
+
+
+            $('#expert').data(data[0][i].contentID)
+            $('#ex-image').attr('src', data[0][i].Picture);
+            $('#ex-title').html(data[0][i].JobTitles);
+            $('#ex-name').text(data[0][i].FullNameAndTitle);
+            $('#ex-page-title').text(data[0][i].FullNameAndTitle);
+            $('#ex-department').text(data[0][i].Department);
+            $('#ex-mail-text').text(data[0][i].Email)
+            $('#ex-mail').attr("href", "mailto:" + data[0][i].Email);
+            if (data[0][i].Telephone1.length > 4) {
+                $('#ex-phone1-text').html(data[0][i].Telephone1);
+                $('#ex-phone1').attr("href", "tel:" + data[0][i].Telephone1);
             }
             else {
                 $('#ex-phone1-text').html("<span class='message-small'>Please contact the Press office</span>");
                 //$('#ex-phone1').attr("href", "#press-page").buttonMarkup({ icon: "link" });
             }
 
-            $('#ex-expertise').html(data[0].MediaExpertise);
+            $('#ex-expertise').html(data[0][i].MediaExpertise);
 
-            var experience = data[0].MediaExperience;
+            var experience = data[0][i].MediaExperience;
             experience.trim();
 
             if (experience.length > 16) { // && !experience=="<br>") {
@@ -80,6 +94,17 @@ app.expert = kendo.observable({
             else {
                 $('#mediaExperience').hide();
             }
+
+            var url = "http://www.birmingham.ac.uk" + data[0][i].ImageUrl
+
+            if (!(navigator.connection.type === Connection.NONE) && url.length > 28 && UrlExists(url)) {
+                $('#ex-image').attr('src', url);
+            }
+            else {
+                $('#ex-image').attr('src', 'images/prof.png');
+            }
+
+
 
             //console.log(data[0].FirstName);
             //console.log(data[0].LastName);

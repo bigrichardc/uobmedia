@@ -21,6 +21,8 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="App_Resources\Android\AndroidManifest.xml" />
+    <Content Include="App_Resources\Android\xml\config.xml" />
     <Content Include="components\contact\view.html" />
     <Content Include="components\contact\index.js" />
     <Content Include="font-awesome-4.5.0\css\font-awesome.css" />
@@ -61,11 +63,13 @@
     <Content Include="images\placeholder_staff_image.png" />
     <Content Include="images\prof.png" />
     <Content Include="js\plugins\bluebird.js" />
+    <Content Include="js\plugins\fileHelper.js" />
     <Content Include="js\plugins\moment-duration-format.js" />
     <Content Include="js\plugins\moment.js" />
     <Content Include="services\expertsRepository.js" />
     <Content Include="services\localStorageService.js" />
     <Content Include="services\remoteServiceManager.js" />
+    <Content Include="services\RemoteServiceTEST.js" />
     <Content Include="styles\images\icons-18-black-pack.png">
       <SubType>Content</SubType>
     </Content>
@@ -173,6 +177,7 @@
     <Folder Include="App_Resources\Android\drawable-ldpi\" />
     <Folder Include="App_Resources\Android\drawable-mdpi\" />
     <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\Android\xml\" />
     <Folder Include="App_Resources\iOS\" />
     <Folder Include="App_Resources\WP8\" />
     <Folder Include="App_Resources\WP8\Assets\" />

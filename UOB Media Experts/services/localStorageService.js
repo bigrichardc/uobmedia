@@ -17,12 +17,13 @@ Storage.prototype.getObject = function (key) {
 var LocalStorageService;
 
 app.registerPreInitialise(function () {
+
+
     //only for dev! 
     // localStorage.clear();
     LocalStorageService = (function () {
 
         var getItem = Promise.method(function (cacheName) {
-
             return new Promise(function (resolve, reject) {
                 if (typeof (Storage) !== "undefined") {
                     var item = localStorage.getObject(cacheName);

@@ -18,7 +18,6 @@ app.registerInitialise(function () {
                 });
             });
         });
-        ``
         return {
             GetAllExperts: getExpertsAll
         }

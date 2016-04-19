@@ -1,10 +1,7 @@
 <div id="contacts" data-title="Media Experts" data-role="view" data-layout="main" data-model="app.expertList" data-show="app.expertList.onShow" data-after-show="app.expertList.afterShow">
-
-    <input type="text" id="filterSearch" placeholder="name" />
-
-    <div data-role="content">
-        <ul data-role="listview" id="listview" data-template="contactTemplate" data-filterable="{field: 'LastName', operator: 'startswith'}, {field: 'FirstName', operator: 'startswith'}" data-source="app.expertList.dataSource"></ul>
-    </div>
+    
+        <ul data-role="listview" endlessScroll="true" id="listview" data-template="contactTemplate" data-filterable="{field: 'FullNameAndTitle', operator: 'contains', autoFilter: false}" data-source="app.expertList.dataSource"></ul>
+    
 </div>
 
 <script type="text/x-kendo-template" id="contactTemplate">
@@ -15,8 +12,10 @@
                 <h3>#:data.LastName#, #:data.FirstName#</h3>
                 <p class="ui-li-desc">#:data.JobTitles#</p>
                 <p class="ui-li-desc">#if (data.Department = null) {# #=data.Department# #} #</p>
+                <a class="tweet-link km-widget km-detaildisclose km-detail" data-role="detailbutton" data-style="detaildisclose"
+                    onclick="javascript: app.mobileApp.navigate('./components/contact/view.html?contentId=' + #: data.ContentId #);"></a>
             </div>
-            <div class="list-chevron"><i class="fa fa-chevron-right fa-fw"></i>&nbsp;</div>
+
         </div>
 
     </div>
