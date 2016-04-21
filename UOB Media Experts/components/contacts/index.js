@@ -14,14 +14,15 @@ function fetchExpertList() {
         dataType: "json",
         url: 'testdata/expert_list.json',
         success: function (data) {
-            console.log("success");
+            //console.log("success");
+
             $('body').data('eList', data)
         }
     })
 };
 
 function populateExpertList() {
-    var eList = $('body').data('eList');
+    //var eList = $('body').data('eList');
 
 }
 

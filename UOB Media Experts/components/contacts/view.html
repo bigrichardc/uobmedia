@@ -10,7 +10,9 @@
         <div class="contact-item">
             <div class="contact-text">
                 <h3>#:data.LastName#, #:data.FirstName#</h3>
-                <p class="ui-li-desc">#:data.JobTitles#</p>
+                <p class="ui-li-desc">#:data.JobTitle# </p>
+                <p class="ui-li-desc">#:data.JobTitle2# </p>
+                <p class="ui-li-desc">#:data.JobTitle3# </p>
                 <p class="ui-li-desc">#if (data.Department = null) {# #=data.Department# #} #</p>
                 <a class="tweet-link km-widget km-detaildisclose km-detail" data-role="detailbutton" data-style="detaildisclose"
                     onclick="javascript: app.mobileApp.navigate('./components/contact/view.html?contentId=' + #: data.ContentId #);"></a>
